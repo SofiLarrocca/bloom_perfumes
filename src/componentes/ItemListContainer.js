@@ -2,7 +2,7 @@
 function ItemListContainer (greeting) { 
     return (
         <>
-            <p className="ItemList"> Bienvenido {greeting.name} </p>
+            <p className="ItemList"> {greeting.name} </p>
         </>
     )
 }
