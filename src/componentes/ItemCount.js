@@ -1,8 +1,9 @@
 import { useState } from "react";
 import mon_paris from '../productos/mujer/mon_paris.jpg';
-import '../contador.css'
+import '../cardProducto.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Item from './Item'
 
 
 const ItemCount = ({stock}) => { 
@@ -61,22 +62,15 @@ const ItemCount = ({stock}) => {
         }
     }
 
-
     return (
         <>
-            <div className="card_producto">
-                <h2>IVES SAINT LAURENT</h2>
-                <p>MON PARIS - 90 ML</p>
-                <img src= {mon_paris} className= 'img_prod'></img>
-                <div className="div_cantidad">
-                    <button onClick={clickEliminar}>-</button>
-                    <h3>{cantidad}</h3>
-                    <button onClick={clickAgregar}>+</button>
-                </div>
+            <button onClick={clickEliminar}>-</button>
+            <h3>{cantidad}</h3>
+            <button onClick={clickAgregar}>+</button>
+            <div>
                 <button onClick={clickVaciar}>Vaciar Carrito</button>
                 <button onClick={clickComprar}>COMPRAR</button>
                 <p className="p-left">Stock disponible: {stock}</p>
-                <ToastContainer />
             </div>
         </>
     )

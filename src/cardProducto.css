@@ -1,14 +1,14 @@
 .card_producto { 
-    width: 25%;
-    margin: auto;
-    padding: 0.8rem 0 0 0;
+    width: 20%;
+    margin: 1rem 0.2rem;
+    padding: 0 2rem;
     text-align: center;
     box-shadow: 6px 0px 20px 0px rgb(190, 187, 187);
     border: 1px solid rgb(218, 218, 218);
   }
 
 .img_prod { 
-    max-width: 10rem;
+    max-width: 8rem;
 }
 
 .div_cantidad { 
@@ -36,4 +36,14 @@ button {
     font-style: italic;
     font-size: 0.8rem;
     color: rgb(68, 67, 67);
+}
+
+
+.item_list { 
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+
 }
