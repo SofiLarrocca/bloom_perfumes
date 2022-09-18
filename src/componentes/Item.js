@@ -9,9 +9,7 @@ const Item = (productos) => {
                 <div className="card_producto" key={e.id}>
                     <h2>{e.marca}</h2>
                     <p>{e.modelo}</p>
-                    <img src={e.img} className='img_prod'></img>
                     <p>{e.tamano}</p>
-                    <p>$ {e.precio}</p>
                 </div>
             ))}
 

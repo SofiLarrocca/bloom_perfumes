@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import ItemList from './ItemList'
 import Item from './Item'
+import ItemDetail from "./ItemDetail";
+
 import m_ch_212 from '../productos/mujer/m_ch_212.jpg'
 import m_ch_212_vip from '../productos/mujer/m_ch_212_vip.jpg'
 import m_ch_212_vip_rose from '../productos/mujer/m_ch_212_vip_rose.jpg'
@@ -60,7 +62,7 @@ const promesa = new Promise ((res, rej)=> {
 
     setTimeout(() => {
         res(arrayProductos)
-      }, 3000);
+      }, 2000);
    
 });
 
@@ -81,6 +83,7 @@ const ItemListContainer = () => {
         <> 
         <p>Productos:</p>
         <ItemList props={productos}/>
+        <ItemDetail props={productos}/>
         </>
     )
 };
