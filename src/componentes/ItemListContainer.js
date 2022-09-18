@@ -57,7 +57,11 @@ const arrayProductos = [{
 ];
 
 const promesa = new Promise ((res, rej)=> { 
-    res(arrayProductos)
+
+    setTimeout(() => {
+        res(arrayProductos)
+      }, 3000);
+   
 });
 
 const ItemListContainer = () => { 
