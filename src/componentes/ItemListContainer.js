@@ -1,90 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import productos from '../productos'
 import ItemList from './ItemList'
-import Item from './Item'
-import ItemDetail from "./ItemDetail";
+import { promesa } from '../utils/promesa'
 
-import m_ch_212 from '../productos/mujer/m_ch_212.jpg'
-import m_ch_212_vip from '../productos/mujer/m_ch_212_vip.jpg'
-import m_ch_212_vip_rose from '../productos/mujer/m_ch_212_vip_rose.jpg'
-import m_ch_ch from '../productos/mujer/m_ch_ch.jpg'
-import m_ch_good_girl from '../productos/mujer/m_ch_good_girl.jpg'
+const ItemListContainer = () => {
 
+    const [ListaProductos, setListaProductos] = useState ([])
 
-/* ARRAY PRODUCTOS */
-const arrayProductos = [{
-    id: 1,
-    genero: 'mujer',
-    marca: 'Carolina Herrera',
-    modelo: '212',
-    tamano: '100 ml',
-    precio: 20000,
-    img: m_ch_212,
-    },
-    {
-    id: 2,
-    genero: 'mujer',
-    marca: 'Carolina Herrera',
-    modelo: '212 Vip',
-    tamano: '100 ml',
-    precio: 22000,
-    img: m_ch_212_vip,
-},
-{
-    id: 3,
-    genero: 'mujer',
-    marca: 'Carolina Herrera',
-    modelo: '212 Vip Rose',
-    tamano: '100 ml',
-    precio: 22000,
-    img: m_ch_212_vip_rose,
-},
-{
-    id: 4,
-    genero: 'mujer',
-    marca: 'Carolina Herrera',
-    modelo: 'Carolina Herrera',
-    tamano: '100 ml',
-    precio: 22000,
-    img: m_ch_ch,
-},
-{
-    id: 5,
-    genero: 'mujer',
-    marca: 'Carolina Herrera',
-    modelo: 'Good Girl',
-    tamano: '100 ml',
-    precio: 22000,
-    img: m_ch_good_girl,
-},
-];
-
-const promesa = new Promise ((res, rej)=> { 
-
-    setTimeout(() => {
-        res(arrayProductos)
-      }, 2000);
-   
-});
-
-const ItemListContainer = () => { 
-
-    const [productos, setProductos] = useState ([]);
-
-    useEffect (() => { 
-        promesa.then ((data)=> {
-            setProductos(data)
-        })
-        .catch (()=> { 
-            console.log ('No se recibió la info')
-        })
+    useEffect (()=> { 
+        promesa(productos)
+        .then (res => setListaProductos (res))
     }, [])
-
+ 
+   
     return (
-        <> 
-        <p>Productos:</p>
-        <ItemList props={productos}/>
-        <ItemDetail props={productos}/>
-        </>
+        <ItemList ListaProductos = {ListaProductos} />
     )
 };
 

@@ -1,16 +1,17 @@
-import '../cardProducto.css'
+import '../cardProducto.css';
 import Item from './Item'
 
-const ItemLIst = ((productos)=> { 
+const ItemList = (({ListaProductos})=> { 
 
-   return (
+    return (
         <>
-            <div className='item_list'>
-                <Item props = {productos.props} />
-            </div>
+        <div className='grid-container'>
+        {ListaProductos.map (prod => 
+            <Item key={prod.id} prod = {prod}/>
+    )}
+        </div>
         </>
     )
-});
+})
 
-
-export default ItemLIst;
+export default ItemList;

@@ -1,20 +1,13 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import '../cardProducto.css'
+import '../cardProducto.css';
 
-const Item = (productos) => { 
+const Item = ({prod}) => { 
     return (
-        <>
-            {productos.props.map((e)=>(
-                <div className="card_producto" key={e.id}>
-                    <h2>{e.marca}</h2>
-                    <p>{e.modelo}</p>
-                    <p>{e.tamano}</p>
-                </div>
-            ))}
-
-            {/* <ToastContainer /> */}
-        </>
+        <div className='card-container'>
+            <p>{prod.marca}</p>
+            <p>{prod.modelo}</p>
+            <img src= {prod.img} className='img-prod'></img>
+            <p>$ {prod.precio}</p>
+        </div>
     )
 }
 

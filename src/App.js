@@ -3,6 +3,8 @@ import NavBar from './componentes/NavBar'
 import ItemListContainer from './componentes/ItemListContainer'
 import ItemDetail from './componentes/ItemDetail'
 
+
+
 function App() {
   return (
     <div>
@@ -10,6 +12,8 @@ function App() {
         <NavBar />
       </header>
       <ItemListContainer />
+      <ItemDetail />
+
     </div>
   );
 }
