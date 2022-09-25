@@ -18,8 +18,7 @@ const Home = () => {
         .then (res => setProd (res))
     }, [cat])
     
-    {console .log (prod)}
-   
+     
     return (
         <>
             <Link to = {`/mujer`} >
