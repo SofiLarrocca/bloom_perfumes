@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import productos from '../productos'
 import ItemList from './ItemList'
 import { promesa } from '../utils/promesa'
 
-const ItemListContainer = () => {
+const ItemListContainer = ({greeting}) => {
 
     const [ListaProductos, setListaProductos] = useState ([])
 
@@ -12,9 +13,11 @@ const ItemListContainer = () => {
         .then (res => setListaProductos (res))
     }, [])
  
-   
     return (
-        <ItemList ListaProductos = {ListaProductos} />
+        <>  
+            <h2>{greeting}</h2>
+                <ItemList ListaProductos={ListaProductos} />
+        </>
     )
 };
 

@@ -3,7 +3,7 @@
     padding: 5rem 6rem;
     grid-template-columns: 1fr 1fr 1fr;
     flex-wrap: wrap;
-    column-gap: 2rem;
+    column-gap: 4rem;
     row-gap: 3rem;
     background-color: rgb(224, 228, 228);
 }
@@ -16,6 +16,6 @@
 }
 
 .img-prod { 
-    max-width: 5rem;
+    max-width: 3rem;
 
 }

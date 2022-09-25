@@ -1,19 +1,24 @@
 import logo from './logo.svg';
 import NavBar from './componentes/NavBar'
 import ItemListContainer from './componentes/ItemListContainer'
-import ItemDetail from './componentes/ItemDetail'
+import ItemDetailContainer from './componentes/ItemDetailContainer';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import ItemDetail from './componentes/ItemDetail';
+import Home from './componentes/Home';
 
 
 
 function App() {
   return (
     <div>
-      <header className="App-header">
+      <BrowserRouter>
         <NavBar />
-      </header>
-      <ItemListContainer />
-      <ItemDetail />
-
+        <Routes> 
+            <Route path='/' element = {<Home />} />
+            <Route path='/:categoria' element = {<ItemListContainer />} />
+            <Route path='detail/:id' element = {<ItemDetailContainer />} />
+        </Routes>
+      </BrowserRouter>  
     </div>
   );
 }

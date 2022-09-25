@@ -1,23 +1,32 @@
 import logo from '../logo.jpg';
 import '../App.css';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
+
+    const categorias = [
+      {id:0, genero: 'Mujer', ruta: '/categorias/mujer'},
+      {id:1, genero: 'Hombre', ruta: '/categorias/hombre'}
+    ]
+
+
     return (
       <div className="App">
+        <header className="App-header">
         <nav className="App-nav">
-          <img src={logo} className="App-logo" alt="logo" />
-  
+            <img src={logo} className="App-logo" alt="logo" />
           <div>
-            <a className="App-link" href="https://reactjs.org" target="_blank">Productos</a>
-            <a className="App-link" href="https://reactjs.org" target="_blank">Ingresar</a>
-            <a className="App-link" href="https://reactjs.org" target="_blank">Comprar</a>
+            {categorias.map ((categorias) => { 
+             return <a key={categorias.id} className="App-link" href='#'>{categorias.genero}</a>
+            })}
             <CartWidget/>
           </div>
         </nav>
-        <div className='linea'></div>
-           
+        </header>
       </div>
+
     );
   };
 
