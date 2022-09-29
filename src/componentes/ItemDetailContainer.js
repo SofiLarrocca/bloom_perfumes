@@ -6,16 +6,20 @@ import ItemDetail from './ItemDetail';
 
 
 
+
 const ItemDetailContainer = () => {
 
     const [prod, setProd] = useState ({})
 
     const {id} = useParams ()
  
-    useEffect (()=> { 
-        promesa(productos, parseInt(id))
-        .then (res => setProd (res))
-    }, [id])
+    useEffect(() => {
+        promesa(productos)
+            .then(res  => res.find(prodId => prodId.id === parseInt(id)))
+            .then(res => {
+                setProd(res); 
+            })
+    }, [id]);
  
     return (
         <>  

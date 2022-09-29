@@ -1,4 +1,3 @@
-import '../cardProducto.css';
 import Item from './Item'
 import { Link } from 'react-router-dom';
 
@@ -8,7 +7,7 @@ const ItemList = (({ListaProductos})=> {
         <>
             <div className='grid-container'>
                     {ListaProductos.map (prod => 
-                        <Link to= {`detail/${prod.id}`}>
+                        <Link className='link-React' to = {`/detalle/${prod.id}`}>
                             <Item key={prod.id} prod = {prod}/>
                         </Link>
                     )}

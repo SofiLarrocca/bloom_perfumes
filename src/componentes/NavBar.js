@@ -1,14 +1,14 @@
 import logo from '../logo.jpg';
-import '../App.css';
+import '../css/App.css';
 import CartWidget from './CartWidget';
-import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Navbar() {
 
     const categorias = [
-      {id:0, genero: 'Mujer', ruta: '/categorias/mujer'},
-      {id:1, genero: 'Hombre', ruta: '/categorias/hombre'}
+      {id:0, genero: 'Mujer', ruta: '/categoria/mujer'},
+      {id:1, genero: 'Hombre', ruta: '/categoria/hombre'},
+      {id:2, genero: 'Niños', ruta: '/categoria/niños'}
     ]
 
 
@@ -16,12 +16,12 @@ function Navbar() {
       <div className="App">
         <header className="App-header">
         <nav className="App-nav">
-            <img src={logo} className="App-logo" alt="logo" />
+           <Link to = '/' ><img src={logo} className="App-logo" alt="logo" /></Link> 
           <div>
             {categorias.map ((categorias) => { 
-             return <a key={categorias.id} className="App-link" href='#'>{categorias.genero}</a>
+             return <NavLink key={categorias.id} className="App-link" to={categorias.ruta}>{categorias.genero}</NavLink>
             })}
-            <CartWidget/>
+            <Link to= '/cart'><CartWidget/></Link> 
           </div>
         </nav>
         </header>
