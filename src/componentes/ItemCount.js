@@ -11,13 +11,13 @@ function ItemCount({inicial, stock, onAdd}) {
     const [counter, setCounter] = useState(inicial);
 
 
-    const agregar = () => {
+    const add = () => {
         if (counter < stock) { 
             setCounter(counter + 1);
         }
     };
 
-    const eliminar = () => {
+    const remove = () => {
         if (counter < 1) {
             setCounter(counter - 1);
         }
@@ -27,9 +27,9 @@ function ItemCount({inicial, stock, onAdd}) {
         <>
             <div className="container">
                 <div className="counter-container">
-                    <FontAwesomeIcon onClick={eliminar} icon={faCircleMinus} onAdd = {onAdd} />
+                    <FontAwesomeIcon onClick={remove} icon={faCircleMinus}  />
                     <p className="counter">{counter}</p>
-                    <FontAwesomeIcon onClick={agregar} icon={faCirclePlus}/>
+                    <FontAwesomeIcon onClick={add} icon={faCirclePlus}/>
                 </div>    
                 <button className="button-count" onClick={onAdd}>Añadir al Carrito</button>
             </div>
