@@ -19,23 +19,35 @@ const CustomProvider = ({ children }) => {
     }
    
     const removeItem = (id) => { 
-        return cart.filter(prod => prod.id !== id)
-    }
+        return setCart(cart.filter ((item) => item.id !== id))
+   }
 
+    // prod.id !== id
     const addItem = (item, counter) => { 
         const newCart = cart.filter(prod => prod.id !== item.id);
-        newCart.push ({... item, cantidad:counter})
+        newCart.push ({...item, cantidad:counter})
         setCart (newCart)
     }
-    console.log (cart)
+  
 
+    const totalPrice = () => { 
+        return cart.reduce((acc, price) => acc + price.cantidad * price.precio, 0) 
+    }
+
+    const totalProducts = () => { 
+        return cart.reduce ((acc, producto)=> acc + producto.cantidad, 0)
+    }
+    
     return (
         <>
             <CartContext.Provider value = {{ 
                 clearCart,
                 isInCart,
                 removeItem,
-                addItem}}>
+                addItem,
+                totalPrice,
+                totalProducts,
+                cart}}>
                 {children}    
             </CartContext.Provider> 
         </>

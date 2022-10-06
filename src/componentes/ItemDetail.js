@@ -13,7 +13,6 @@ const ItemDetail = (({prod})=> {
     const onAdd = (counter)=> { 
         setAdd (true); 
         addItem (prod, counter)
-        console.log (counter)
     }
 
 

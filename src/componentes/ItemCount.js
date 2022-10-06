@@ -31,7 +31,7 @@ function ItemCount({inicial, stock, onAdd}) {
                     <p className="counter">{counter}</p>
                     <FontAwesomeIcon onClick={add} icon={faCirclePlus}/>
                 </div>    
-                <button className="button-count" onClick={onAdd}>Añadir al Carrito</button>
+                <button className="button-count" onClick={() => onAdd(counter)}>Añadir al Carrito</button>
             </div>
         </>
 

@@ -11,7 +11,6 @@ const ItemListContainer = ({greeting}) => {
     // const [prodCateogoria, setProdCategoria] = useState ({})
 
     let {categoria} = useParams ();
-    console.log (categoria)
 
     useEffect(() => {
         promesa(productos, " ", { categoria })
