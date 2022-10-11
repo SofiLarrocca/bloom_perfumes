@@ -4,6 +4,7 @@ import '../css/ItemDetail.css';
 import { useCartContext } from './CartContext';
 import ItemCount from './ItemCount';
 
+
 const ItemDetail = (({prod})=> { 
 
     const [add, setAdd] = useState (false)

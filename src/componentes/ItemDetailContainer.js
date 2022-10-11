@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import productos from '../productos'
 import { promesa } from '../utils/promesa'
 import ItemDetail from './ItemDetail';
-
+import { getFirestore, doc, getDoc } from 'firebase/firestore'
 
 
 
@@ -14,12 +14,11 @@ const ItemDetailContainer = () => {
     const {id} = useParams ()
  
     useEffect(() => {
-        promesa(productos)
-            .then(res  => res.find(prodId => prodId.id === parseInt(id)))
-            .then(res => {
-                setProd(res); 
-            })
-    }, [id]);
+        const db = getFirestore();
+        const queryDoc = doc(db, 'productos', id)
+        getDoc(queryDoc)
+        .then (res => setProd({id: res.id, ...res.data()}))
+    }, []);
  
     return (
         <>  

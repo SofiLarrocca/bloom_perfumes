@@ -4,6 +4,8 @@ import productos from '../productos'
 import ItemList from './ItemList'
 import { promesa } from '../utils/promesa'
 import '../css/ItemListContainer.css';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore'
+
 
 const ItemListContainer = ({greeting}) => {
 
@@ -13,12 +15,17 @@ const ItemListContainer = ({greeting}) => {
     let {categoria} = useParams ();
 
     useEffect(() => {
-        promesa(productos, " ", { categoria })
-            .then(res => {
-                if (categoria) {
-                    setListaProductos(res.filter((prod) => prod.categoria === categoria))
-                } else setListaProductos(res); 
-            })
+        const db = getFirestore();
+        const queryColecction = collection(db, 'productos')
+        
+        if (categoria) { 
+            const queryFilter = query(queryColecction, where('categoria', '==', categoria ))
+            getDocs(queryFilter)
+            .then (res => setListaProductos(res.docs.map(productos => ({id: productos.id, ...productos.data()}))))
+        } else { 
+            getDocs(queryColecction)
+            .then (res => setListaProductos(res.docs.map(productos => ({id: productos.id, ...productos.data()}))))
+        }
     }, [categoria]);
  
 
