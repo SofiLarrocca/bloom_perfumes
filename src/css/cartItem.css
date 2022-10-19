@@ -1,4 +1,26 @@
 
+
+.cartFinalizar { 
+    text-align: right;
+    width: 70%;
+    margin: auto;
+}
+
+.cartFinalizar p { 
+    display: block;
+    text-align: right;
+    padding: 2rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.cartFinalizar button { 
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #000;
+    color: #fff;
+}
+
 .itemCart {
     background-color: #fff;
     padding: 1rem;

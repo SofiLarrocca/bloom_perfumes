@@ -1,23 +1,25 @@
 * { 
   font-family: 'Roboto Condensed', sans-serif;
-
 }
 
 body { 
   margin-bottom: 2rem;
 }
 
-.App {
+.navBar {
   background-color: #282c34;
 }
 
-.App-logo {
-  max-width: 4rem;
-  pointer-events: none;
+.logo { 
+  font-family: 'Kanit', sans-serif;
+  padding: 0.5rem;
+  text-decoration: none;
+  font-size: 2rem;
+  color: #fff;
+  border: 8px solid red;
 }
 
-
-.App-nav {
+.navBar-container {
   width: 80%;
   margin: auto;
   align-items: center;
@@ -27,7 +29,7 @@ body {
   color: white;
 }
 
-.App-link {
+.navBar-link {
   color:#fff;
   cursor: pointer;
   text-decoration: none;

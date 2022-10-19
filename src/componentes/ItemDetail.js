@@ -4,7 +4,6 @@ import '../css/ItemDetail.css';
 import { useCartContext } from './CartContext';
 import ItemCount from './ItemCount';
 
-
 const ItemDetail = (({prod})=> { 
 
     const [add, setAdd] = useState (false)
@@ -16,8 +15,7 @@ const ItemDetail = (({prod})=> {
         addItem (prod, counter)
     }
 
-
-
+    
     return (
         <>
         <div className='container-detail'>
@@ -29,7 +27,7 @@ const ItemDetail = (({prod})=> {
                 <h3>{prod.modelo}</h3>
                 <p>{prod.descripcion}</p>
                 {
-                    add ? <Link to = '/cart'>Finalizar Compra</Link> :  <ItemCount inicial= {1} stock = {6} onAdd = {onAdd}></ItemCount>
+                    add ? <Link to = '/cart'>Finalizar Compra</Link> : <ItemCount inicial= {1} stock = {6} onAdd = {onAdd}></ItemCount>
                 }
             </div>
         </div>
