@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
        <CustomProvider> 
         <NavBar />
-        <Routes> 
+        <Routes basename={process.env.PUBLIC_URL}> 
             <Route path='/' element = {<ItemListContainer greeting={'TODOS LOS PRODUCTOS'} />} />
             <Route path='/categoria/:categoria' element = {<ItemListContainer greeting={'TODOS LOS PRODUCTOS'} />} />
             <Route path='/detalle/:id' element = {<ItemDetailContainer />} />
